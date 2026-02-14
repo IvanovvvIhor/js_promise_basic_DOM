@@ -19,13 +19,10 @@ promise1.then(() => {
 });
 
 const promise2 = new Promise((resolve, reject) => {
-  document.addEventListener((e) => {
-    reject();
-  });
+    setTimeout(reject, 3000);
 });
 
 promise2.catch(() => {
-  setTimeout(() => {
   const div = document.createElement('div');
 
   div.classList.add('message');
@@ -33,5 +30,4 @@ promise2.catch(() => {
   div.textContent = `Promise was rejected!`;
 
   document.body.appendChild(div);
-  },3000);
 });
